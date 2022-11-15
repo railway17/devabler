@@ -5,12 +5,7 @@
 section#home {
     width: 100%;
     min-height: 100vh;
-    // height: 100%;
-    top: 0; left: 0;
-    padding: 100px 20px 0;
-    // background-image: url('/img/header.jpg');
-    // background-size: cover;
-    // background-repeat: no-repeat;
+    padding: 200px 20px 0;
     background-color: #fae7e4;
 
     div.content {
@@ -24,9 +19,16 @@ section#home {
     }
 
     .empty-content {
-        margin: 30% auto;
+        margin: 20% auto;
         text-align: center;
         font-weight: bold;
         font-size: 1.5em;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        div.content {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+        }
     }
 }

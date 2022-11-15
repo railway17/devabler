@@ -185,3 +185,39 @@
 [15/11/2022 -- 16:51]  Scripts ran on main.js
 [15/11/2022 -- 16:51]  Scripts ran on main.js
 [15/11/2022 -- 16:53]  Scripts ran on main.js
+[15/11/2022 -- 17:0]  Info task started
+[15/11/2022 -- 17:0]  Mustache Templates ran on the HTML files
+[15/11/2022 -- 17:0]  Scripts ran on main.js
+[15/11/2022 -- 17:0]  Sass ran on files
+[15/11/2022 -- 17:2]  Sass ran on files
+[15/11/2022 -- 17:3]  Sass ran on files
+[15/11/2022 -- 17:3]  Sass ran on files
+[15/11/2022 -- 17:3]  Sass ran on files
+[15/11/2022 -- 17:4]  Sass ran on files
+[15/11/2022 -- 17:4]  Sass ran on files
+[15/11/2022 -- 17:4]  Sass ran on files
+[15/11/2022 -- 17:5]  Sass ran on files
+[15/11/2022 -- 17:5]  Info task started
+[15/11/2022 -- 17:5]  Mustache Templates ran on the HTML files
+[15/11/2022 -- 17:5]  Scripts ran on main.js
+[15/11/2022 -- 17:5]  Sass ran on files
+[15/11/2022 -- 17:6]  Info task started
+[15/11/2022 -- 17:6]  Mustache Templates ran on the HTML files
+[15/11/2022 -- 17:6]  Scripts ran on main.js
+[15/11/2022 -- 17:6]  Sass ran on files
+[15/11/2022 -- 17:8]  Sass ran on files
+[15/11/2022 -- 17:9]  Sass ran on files
+[15/11/2022 -- 17:9]  Sass ran on files
+[15/11/2022 -- 17:10]  Sass ran on files
+[15/11/2022 -- 17:10]  Sass ran on files
+[15/11/2022 -- 17:11]  Sass ran on files
+[15/11/2022 -- 17:13]  Sass ran on files
+[15/11/2022 -- 17:13]  Sass ran on files
+[15/11/2022 -- 17:14]  Sass ran on files
+[15/11/2022 -- 17:15]  Sass ran on files
+[15/11/2022 -- 17:16]  Sass ran on files
+[15/11/2022 -- 17:16]  Sass ran on files
+[15/11/2022 -- 17:16]  Sass ran on files
+[15/11/2022 -- 17:17]  Sass ran on files
+[15/11/2022 -- 17:17]  Sass ran on files
+[15/11/2022 -- 17:17]  Sass ran on files

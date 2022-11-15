@@ -20,16 +20,18 @@ header.menu div.search-container { position: absolute; background-color: white; 
 
 header.menu div.search-container.showing { display: block; }
 
-header.menu div.search-container input[type='text'] { min-width: 100%; font-size: 36px; line-height: 50px; border: 1px solid #CCC; padding: 0 10px; }
+header.menu div.search-container input[type='text'] { width: 100%; font-size: 36px; line-height: 50px; border: 1px solid #CCC; padding: 0 10px; }
 
 header.menu div.search-container i.close { position: absolute; right: 10px; top: 5px; font-size: 36px; line-height: 50px; }
 
 /** This is the central home page */
-section#home { width: 100%; min-height: 100vh; top: 0; left: 0; padding: 100px 20px 0; background-color: #fae7e4; }
+section#home { width: 100%; min-height: 100vh; padding: 200px 20px 0; background-color: #fae7e4; }
 
 section#home div.content { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 0.5rem; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-section#home .empty-content { margin: 30% auto; text-align: center; font-weight: bold; font-size: 1.5em; }
+section#home .empty-content { margin: 20% auto; text-align: center; font-weight: bold; font-size: 1.5em; }
+
+@media (max-width: 768px) { section#home div.content { grid-template-columns: repeat(1, 1fr); gap: 1rem; } }
 
 .product-card { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background-color: white; border-radius: 0.5em; padding: 1.5em; }
 
