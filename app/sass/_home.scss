@@ -1,0 +1,32 @@
+/**
+ * This is the central home page
+ *
+ */
+section#home {
+    width: 100%;
+    min-height: 100vh;
+    // height: 100%;
+    top: 0; left: 0;
+    padding: 100px 20px 0;
+    // background-image: url('/img/header.jpg');
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    background-color: #fae7e4;
+
+    div.content {
+        max-width: $siteWidth;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .empty-content {
+        margin: 30% auto;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+}

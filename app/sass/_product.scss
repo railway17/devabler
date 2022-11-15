@@ -1,0 +1,42 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 0.5em;
+    padding: 1.5em;
+
+    .card-detail {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        .text {
+            text-align: center;
+            color: #444;
+        }
+    
+        .card-name {
+            color: black;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 1em 0;
+        }
+    
+        .card-price {
+            margin: 1em 0;
+        }
+    
+        .card-about {
+            padding: 0 2em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* number of lines to show */
+                    line-clamp: 2; 
+            -webkit-box-orient: vertical;
+        }
+    }
+}
