@@ -1,6 +1,6 @@
 /**
  * The Server Can be configured and created here...
- * 
+ *
  * You can find the JSON Data file here in the Data module. Feel free to impliment a framework if needed.
  */
 
@@ -19,30 +19,38 @@
     ]
 }
 */
-const data      = require('./data');
-const http      = require('http');
-const url       = require('url');
-const hostname  = 'localhost';
-const port      = 3035;
+const data = require("./data");
+const http = require("http");
+const url = require("url");
+const hostname = "localhost";
+const port = 3035;
 
-/** 
+/**
  * Start the Node Server Here...
- * 
- * The http.createServer() method creates a new server that listens at the specified port.  
- * The requestListener function (function (req, res)) is executed each time the server gets a request. 
+ *
+ * The http.createServer() method creates a new server that listens at the specified port.
+ * The requestListener function (function (req, res)) is executed each time the server gets a request.
  * The Request object 'req' represents the request to the server.
  * The ServerResponse object 'res' represents the writable stream back to the client.
  */
-http.createServer(function (req, res) {
+http
+  .createServer(function (req, res) {
     // .. Here you can create your data response in a JSON format
     const requestParams = url.parse(req.url, true).query;
     const { query } = requestParams;
-    const responseData = query ? data.filter(el=>el.name.toLowerCase().includes(query.toLowerCase())) : data;
-    const activeProducts = responseData.filter(el=>el.isActive);
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    const lowercasedQuery = query?.toLowerCase() ?? "";
+    const responseData = query
+      ? data.filter(
+          (el) =>
+            el.name.toLowerCase().includes(lowercasedQuery) ||
+            el.tags.some((tag) => tag.toLowerCase().includes(lowercasedQuery))
+        )
+      : data;
+    const activeProducts = responseData.filter((el) => el.isActive);
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.write(JSON.stringify(activeProducts)); // Write out the default response
     res.end(); //end the response
-}).listen( port );
-
+  })
+  .listen(port);
 
 console.log(`[Server running on ${hostname}:${port}]`);

@@ -3,94 +3,108 @@
  *
  */
 
-$lineHeightForNav: 70px;
+$lineHeightForNav: 50px;
 $lineHeightForSearch: 50px;
 
-
 header.menu {
+  // ...
+  width: 100%;
+  position: fixed;
+  z-index: 10;
 
-    // ...
+  div.menu-container {
     width: 100%;
-    position: fixed;
-    z-index: 10;
+    background-color: #040a2b;
+    padding: 0 20px;
+    text-align: left;
 
-    div.menu-container {
-        width: 100%;
-        background-color: #040a2b;
-        padding: 0 20px;
-        text-align: left;
-        
-        div.menu-holder {
-            position: relative;
-            width: 100%;
-            max-width: $siteWidth;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 24px;
-            line-height: $lineHeightForNav;
-            color: white;
-            text-align: left;
-            display: inline-block;
-        }
-        nav {
-            display: inline-block;
-            margin-left: 60px;
-
-            i { 
-                color: white; 
-                font-size: 30px;
-                line-height: $lineHeightForNav;
-            }
-            i.search {
-                position: absolute;
-                right: 10px;
-                top: 0;
-            }
-
-            a.nav-item {
-                font-family: Helvetica, Arial, Sans-Serif;
-                font-size: 17px;
-                line-height: $lineHeightForNav;
-                text-transform: uppercase;
-                text-decoration: none;
-                white-space: nowrap;
-                border-bottom: 1px solid transparent;
-                color: #FFF;
-                margin-right: 20px;
-            }
-        }
+    div.menu-holder {
+      position: relative;
+      width: 100%;
+      max-width: $siteWidth;
+      margin: 0 auto;
     }
 
-    div.search-container {
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      line-height: $lineHeightForNav;
+      color: white;
+      text-align: left;
+      display: inline-block;
+    }
+    nav {
+      .toggle-button {
+        margin-right: 24px;
+      }
+      .menu-search-input {
+        font-size: 20px;
+        line-height: 30px;
+        border-radius: 20px;
+      }
+
+      i.search {
         position: absolute;
-        background-color: white;
-        z-index: 20;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        width: 60%;
-        left: calc((100% - 60%) / 2);   // same with left: 20%;
-        margin-top: 24px;
-        padding: 5px;
-        border-bottom: 1px solid #CCC;
-        display: none;
-        &.showing { display: block; }
-        
-        input[type='text'] {
-            width: 100%;
-            font-size: 36px;
-            line-height: $lineHeightForSearch;
-            border: 1px solid #CCC;
-            padding: 0 10px;
-        }
+        font-size: 30px;
+        line-height: $lineHeightForNav;
+        right: 10px;
+        color: black;
+      }
 
-        i.close {
-            position: absolute;
-            right: 10px;
-            top: 5px;
-            font-size: 36px;
-            line-height: $lineHeightForSearch;
+      a {
+        font-family: Helvetica, Arial, Sans-Serif;
+        font-size: 17px;
+        line-height: $lineHeightForNav;
+        text-transform: uppercase;
+        text-decoration: none;
+        white-space: nowrap;
+        border-bottom: 1px solid transparent;
+        color: #fff;
+        margin-right: 10px;
+        &.search-link {
+          position: relative;
+          padding-top: 10px;
+          max-width: 230px;
         }
+        &.navbar-brand {
+          font-weight: bold;
+          font-size: 22px;
+        }
+      }
     }
+  }
+
+  div.search-container {
+    position: absolute;
+    background-color: white;
+    z-index: 20;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    left: calc((100% - 60%) / 2); // same with left: 20%;
+    margin-top: 24px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 20px;
+    display: none;
+    &.showing {
+      display: block;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      font-size: 36px;
+      line-height: $lineHeightForSearch;
+      border: 1px solid #ccc;
+      padding: 0 10px;
+      border-radius: 20px;
+    }
+
+    i.close {
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      font-size: 36px;
+      line-height: $lineHeightForSearch;
+    }
+  }
 }

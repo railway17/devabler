@@ -1,145 +1,72 @@
-/**
- * This file will hold the Menu that lives at the top of the Page, this is all rendered using a React Component...
- * 
- */
-import React from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
-import { debounce } from './../libs/helper';
-const DELAY_TIME = 500;
+import React, { useState } from "react";
+import { SearchInput } from "./search";
+import PropTypes from "prop-types";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 const propTypes = {
-    onFetched: PropTypes.func.isRequired,
-}
+  onSearch: PropTypes.func.isRequired,
+};
 
-class Menu extends React.Component {
+const Menu = ({ onSearch }) => {
+  const [searchVisible, setSearchVisible] = useState(false);
 
-    /**
-     * Main constructor for the Menu Class
-     * @memberof Menu
-     */
-    constructor() {
-        super();
-        this.inputRef = null;
-        this.state = {
-            showingSearch: false,
-            searchInput: '',
-        };
-        this.debouncedFetch = debounce(this.fetchData, DELAY_TIME); 
-    }
+  /**
+   * Shows or hides the search container
+   * @memberof Menu
+   * @param e [Object] - the event from a click handler
+   */
+  const showSearchContainer = (e) => {
+    e.preventDefault();
+    setSearchVisible(!searchVisible);
+    // TODO focus to input
+  };
 
-    componentDidMount() {
-        this.fetchData()
-    }
-
-    /**
-     * Fetch data from API
-     */
-    fetchData() {
-        const {searchInput} = this.state
-        axios.get('http://localhost:3035', {
-            params: { query: searchInput, }
-        }).then(res=> {
-            if (res.status !== 200) {
-                // TODO: handle response if status code is not 200
-                return;
-            }
-            const products = res.data;
-            this.props.onFetched(products);
-        }).catch(err=> {
-            // TODO: API exception handler, e.g: show error modal dialog
-            console.error('API error: ', err.toString())
-        })
-    }
-    
-    /**
-     * Shows or hides the search container
-     * @memberof Menu
-     * @param e [Object] - the event from a click handler
-     */
-    showSearchContainer(e) {
-        e.preventDefault();
-        this.setState({
-            showingSearch: !this.state.showingSearch
-        }, ()=> {
-            if (this.inputRef != null) {
-                this.inputRef.focus()
-            }
-        });
-    }
-
-    /**
-     * Calls upon search change
-     * @memberof Menu
-     * @param e [Object] - the event from a text change handler
-     */
-    onSearch(e) {        
-        const newSearchInput = e.target.value;
-        this.setState({ searchInput: newSearchInput });
-        if (newSearchInput === '') {
-            return;
-        }
-        this.debouncedFetch(newSearchInput);    
-    }
-
-    /**
-     * Not required, only hide the search container when hit Enter Key
-     * @param {KeyEvent} e 
-     */
-    onKeyDown(e) {
-        console.log(e.keyCode)
-        if  (e.keyCode === 13) {
-            this.setState({showingSearch: false})
-        }
-    }
-
-    /**
-     * Renders the default app in the window, we have assigned this to an element called root.
-     * 
-     * @returns JSX
-     * @memberof App
-    */
-    render() {
-        return (
-            <header className="menu">
-                <div className="menu-container">
-                    <div className="menu-holder">
-                        <h1>ELC</h1>
-                        <nav>
-                            <a href="#" className="nav-item">HOLIDAY</a>
-                            <a href="#" className="nav-item">WHAT'S NEW</a>
-                            <a href="#" className="nav-item">PRODUCTS</a>
-                            <a href="#" className="nav-item">BESTSELLERS</a>
-                            <a href="#" className="nav-item">GOODBYES</a>
-                            <a href="#" className="nav-item">STORES</a>
-                            <a href="#" className="nav-item">INSPIRATION</a>
-
-                            <a href="#" onClick={(e) => this.showSearchContainer(e)}>
-                                <i className="material-icons search">search</i>
-                            </a>
-                        </nav>
-                    </div>
-                </div>
-                <div className={(this.state.showingSearch ? "showing " : "") + "search-container"}>
-                    <input 
-                        ref={(input) => { this.inputRef = input; }} 
-                        type="text" 
-                        autoFocus
-                        value={this.state.searchInput} 
-                        onChange={(e) => this.onSearch(e)} 
-                        onKeyDown={(e)=> this.onKeyDown(e)} />
-                    <a href="#" onClick={(e) => this.showSearchContainer(e)}>
-                        <i className="material-icons close">close</i>
-                    </a>
-                </div>
-            </header>
-        );
-    }
-
-
-}
+  /**
+   * Renders the default app in the window, we have assigned this to an element called root.
+   *
+   * @returns JSX
+   * @memberof App
+   */
+  return (
+    <header className="menu">
+      <div className="menu-container">
+        <Navbar variant="dark" expand="lg" className="d-flex">
+          <Container fluid className="justify-content-start col">
+            <Navbar.Toggle
+              aria-controls="basic-navbar-nav"
+              className="toggle-button"
+            />
+            <Navbar.Brand href="#/">ELC</Navbar.Brand>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link href="#">HOLIDAY</Nav.Link>
+                <Nav.Link href="#">WHAT'S NEW</Nav.Link>
+                <Nav.Link href="#">PRODUCTS</Nav.Link>
+                <Nav.Link href="#">BESTSELLERS</Nav.Link>
+                <Nav.Link href="#">GOODBYES</Nav.Link>
+                <Nav.Link href="#">STORES</Nav.Link>
+                <Nav.Link href="#">INSPIRATION</Nav.Link>
+                <a
+                  href="#"
+                  onClick={(e) => showSearchContainer(e)}
+                  className="search-link"
+                >
+                  <input className="menu-search-input" readOnly />
+                  <i className="material-icons search">search</i>
+                </a>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      </div>
+      <SearchInput
+        visible={searchVisible}
+        setVisible={setSearchVisible}
+        onSearch={onSearch}
+      />
+    </header>
+  );
+};
 
 Menu.propTypes = propTypes;
-Menu.displayName = 'Menu';
-// Export out the React Component
 export default Menu;

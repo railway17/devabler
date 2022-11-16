@@ -3,32 +3,38 @@
  *
  */
 section#home {
-    width: 100%;
-    min-height: 100vh;
-    padding: 200px 20px 0;
-    background-color: #fae7e4;
+  width: 100%;
+  min-height: 100vh;
+  padding: 200px 20px 0;
+  background-color: #fae7e4;
 
+  .loading-spinner {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+  }
+
+  div.content {
+    max-width: $siteWidth;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .empty-content {
+    margin: 20% auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
     div.content {
-        max-width: $siteWidth;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        padding: 0.5rem;
-        box-sizing: border-box;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
     }
-
-    .empty-content {
-        margin: 20% auto;
-        text-align: center;
-        font-weight: bold;
-        font-size: 1.5em;
-    }
-
-    @media (max-width: $breakpoint-tablet) {
-        div.content {
-            grid-template-columns: repeat(1, 1fr);
-            gap: 1rem;
-        }
-    }
+  }
 }
