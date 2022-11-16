@@ -6,7 +6,6 @@ section#home {
   width: 100%;
   min-height: 100vh;
   padding: 200px 20px 0;
-  background-color: #fae7e4;
 
   .loading-spinner {
     position: absolute;
@@ -25,10 +24,21 @@ section#home {
   }
 
   .empty-content {
-    margin: 20% auto;
+    margin: 10% auto;
     text-align: center;
     font-weight: bold;
     font-size: 1.5em;
+    background-color: rgb(246, 246, 241);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    i {
+      font-size: 30px;
+    }
   }
 
   @media (max-width: $breakpoint-tablet) {

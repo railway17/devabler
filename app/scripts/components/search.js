@@ -16,10 +16,6 @@ export const SearchInput = ({ visible, setVisible, onSearch }) => {
   const searchTextChange = (e) => {
     const newSearchInput = e.target.value;
     setQuery(newSearchInput);
-    if (newSearchInput === "") {
-      return;
-    }
-
     debouncedSearch(newSearchInput);
   };
 

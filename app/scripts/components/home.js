@@ -42,7 +42,12 @@ const Home = ({ searchQuery }) => {
           ))}
         </div>
       ) : (
-        <div className="empty-content">No Search Result...</div>
+        <div className="empty-content">
+          <div>
+            <i className="material-icons">search</i>
+          </div>
+          <div>Sorry! No Found Result</div>
+        </div>
       )}
     </section>
   );
